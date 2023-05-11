@@ -14,17 +14,14 @@ class Solution:
             if vis[v]:
                 continue
             vis[v] = True
-                
             res = min(res, d + cost(specialRoads[v][2:4], target))
             for w in range(len(dist)):
                 if vis[w]:
                     continue   
-
                 alt = d + cost(specialRoads[v][2:4], specialRoads[w][:2]) + specialRoads[w][4]
                 if alt < dist[w]:
                     dist[w] = alt 
                     heappush(pq, (alt, w))
-            
         return res 
             
         
